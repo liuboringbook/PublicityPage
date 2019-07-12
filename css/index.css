@@ -13,4 +13,171 @@
     right:60px;
     bottom:80px;
     z-index:1001;
+    animation: more 0.6s linear infinite alternate;
+}
+/*内容容器*/
+.content{
+    width: 900px;
+    height:600px;
+    background: rgba(0,0,0,0.1);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -450px;
+}
+/*布局：定位 动画：位移*/
+/*第一屏*/
+.screen1{
+    background: url("../images/01-bg.png") no-repeat center bottom;
+}
+.screen1 .goods{
+    text-align: center;
+    margin-top:230px;
+}
+.screen1 .sofa{
+    position: absolute;
+    left:230px;
+    top:150px;
+    animation: sofa 0.8s linear infinite alternate;/*无穷次*//*逆播放*/
+}
+.screen1 .fly{
+    position: absolute;
+    top:20px;
+    right:-50px;
+    /*调用动画*/
+    animation: fly01 1s linear infinite alternate;/*无穷次*//*逆播放*/
+}
+/* 第一屏动画 */
+/*使用animation动画*/
+/*
+1，定义动画序列
+*/
+@keyframes fly01 {
+    from {
+       transform: translateY(-50px);
+    }
+    to{
+      transform: translateY(50px);
+    }
+}
+@keyframes more {
+    from{
+        transform: translateY(-30px);
+    }
+    to{
+        transform: translateY(30px);
+    }
+}
+@keyframes sofa {
+    from{
+        transform: translateY(-20px);
+    }
+    to{
+        transform: translateY(20px);
+    }
+}
+
+
+/* 第二屏*/
+/*使用动画需要使用块级元素*/
+.screen2{
+    background: url("../images/02-bg.png") no-repeat center bottom;
+}
+.screen2 .goods{
+    position: absolute;
+    left: 50%;
+    margin-left:-220px;
+    bottom:210px;
+    transform-origin: right bottom;
+    transform: scale(0);
+}
+.screen2 .sofa{
+    transform: scale(0.5);
+    position: absolute;
+    left: 292px;
+    top: 132px;
+    opacity: 0;
+    z-index:1001;
+}
+.screen2 .input{
+    position: absolute;
+    right:171px;
+    top:121px;
+    opacity: 0;
+    /*右上角 transform scale(0.7)*/
+    /*中心位置 transform：translate(-180px,130px)*/
+    /*最右边的位置 transform: translate(2000px,130px)*/
+
+    /*transform: scale(0.7);*/
+    /*默认的装换远点中心*/
+    transform-origin: right top;
+}
+.screen2 .input .search{
+
+}
+.screen2 .input .key{
+    position: absolute;
+    left:100px;
+    top:4px;
+    opacity: 0;
+}
+.screen2 .text{
+    text-align: center;
+}
+.screen2 .text .text01{
+
+}
+.screen2 .text .text02{
+   position: absolute;
+    opacity:0;
+}
+
+/*第二屏动画*/
+.screen2.now .text .text01{
+    position: absolute;
+    opacity:0;
+}
+.screen2.now .text .text02{
+    position: static;
+    opacity: 1;
+    transition: opacity 1s;
+}
+.screen2.now .input{
+    /*动画播放完成状态控制 backwords(回到起点) forwards(保持)*/
+    animation: input02 3s linear forwards;
+}
+.screen2.now .input .key{
+    opacity: 1;
+    transition: all 1s linear 1s ;
+}
+.screen2.now .goods{
+    /*none清空所有转换属性*/
+    transform: none;
+    transition: all 1s linear 2s;
+}
+/*
+ 1,搜索框在右边动画出来
+ 2，在显示器中间停留，显示关键字
+ 3，商品列表动画显示，搜索框位移到右上角
+*/
+
+
+
+
+@keyframes input02 {
+    0%{
+        /*初始化元素的位置*/
+        transform: translate(2000px,130px);
+        opacity: 1;
+    }
+    33.3%{
+       transform: translate(-180px,130px)
+    }
+    67%{
+        transform: translate(-180px 130px);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(0.7)
+    }
 }

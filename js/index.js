@@ -10,6 +10,13 @@ $(function(){
         /*设置屏幕内容的对齐方式*/
         verticalCentered:  false,
         /*设置导航，设置指示器*/
-        navigation:true
+        navigation:true,
+        /*监听进入某一屏的时候*/
+        afterLoad: function(link,index){
+           setTimeout(function(){
+               $('.section').eq(index-1).addClass('now')
+           })
+
+        }
     });
 })
