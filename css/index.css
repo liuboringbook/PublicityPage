@@ -181,3 +181,79 @@
         transform: scale(0.7)
     }
 }
+/*沙发做动画，当第二屏离开的时候  和页面的滚动同步 动画时间保持一致*/
+.screen2.leaved .sofa{
+    opacity: 1;
+    animation: sofa2 1s linear;
+}
+@keyframes sofa2 {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 1;
+        /*沙发下移*/
+        transform: translate( -80px,970px);
+    }
+}
+
+
+/*第三屏*/
+.screen3{
+    background: url("../images/03-bg.png") no-repeat center bottom;
+}
+.screen3 .sofa{
+    position: absolute;
+    top:165px;
+    left:212px;
+    display: none;
+}
+
+.screen3 .change{
+    position: absolute;
+    right: 115px;
+    bottom: 170px;
+}
+.screen3 .cart{
+    position: absolute;
+    right: 115px;
+    bottom: 100px;
+}
+.screen3 .change img:last-child{
+    position: absolute;
+    opacity: 0;
+}
+.screen3 .cart img:last-child{
+    position: absolute;
+    opacity: 0;
+}
+.screen3.now .change img:first-child{
+    display: none;
+}
+.screen3.now .change img:last-child{
+    position: static;
+    opacity: 1;
+    transition: all 1s linear;
+}
+.screen3.now .cart img:first-child{
+    display: none;
+}
+.screen3.now .cart img:last-child{
+    position: static;
+    opacity: 1;
+    transition: all 1s linear;
+}
+.screen3.now .sofa{
+    display: block;
+}
+
+
+/*第四屏*/
+.screen4{
+    background: url("../images/04-bg.png") no-repeat center bottom;
+}
+.screen4 .cloud{
+    position: absolute;
+    left: 0;
+    top: -50px;
+}
