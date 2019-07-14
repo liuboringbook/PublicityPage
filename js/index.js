@@ -24,6 +24,9 @@ $(function(){
             if(index == 2 && nextIndex == 3){
                 /*当前是从第二页到第三页*/
                 $('.section').eq(index-1).addClass('leaved')
+            }else if(index == 3&& nextIndex == 4){
+                /*当前是从第三页到第四页*/
+                $('.section').eq(index-1).addClass('leaved')
             }
         },
         afterRender: function(){
@@ -35,6 +38,12 @@ $(function(){
             /*3,例如：$.fn.src = function(){return this.attr('src')} this 你选择谁this(jquery对象)执行谁*/
             $('.more').on('click',function(){
                 $.fn.fullpage.moveSectionDown()
+            })
+
+            /*当第四屏的购物车动画结束之后执行收货地址·对的动画*/
+            $('.screen4 .cart').on('transitionend',function(){
+                $('.screen4 .address').show().find('img:last').fadeIn(1000);
+                $('.screen4 .text').addClass('show')
             })
         }
         /*点击更多切换下一页*/

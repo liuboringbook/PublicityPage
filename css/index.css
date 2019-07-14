@@ -242,9 +242,26 @@
     position: static;
     opacity: 1;
     transition: all 1s linear;
+
 }
 .screen3.now .sofa{
     display: block;
+    z-index:1001;
+}
+.screen3.leaved .sofa{
+    /*1，组合写法 多个转换属性之间空格 transform:rotate() translateX() scale()*/
+    /*2，如果你先旋转，那么坐标也会旋转，解决方法，先位移在旋转*/
+    /*3，最好是先位移，再旋转*/
+    /*旋转之后坐标轴也会旋转*/
+    animation: sofa03 1s linear;
+}
+@keyframes sofa03 {
+    from{
+
+    }
+    to{
+        transform: translate(190px,950px) rotate(45deg);
+    }
 }
 
 
@@ -254,6 +271,83 @@
 }
 .screen4 .cloud{
     position: absolute;
-    left: 0;
+    left: -400px;
     top: -50px;
+    animation: cloud04 20s linear infinite alternate;
+}
+.screen4 .text{
+    text-align: center;
+    margin-top:120px;
+}
+.screen4 .text img:last-child{
+    position: absolute;
+    opacity: 0;
+}
+.screen4 .text.show img:first-child{
+    position: absolute;
+    opacity: 0;
+}
+.screen4 .text.show img:last-child{
+    position: static;
+    opacity: 1;
+    transition: all 1s linear;
+}
+
+.screen4 .cart{
+    position: relative;
+    text-align: center;
+    margin-top: 50px;
+    z-index:1002;
+}
+.screen4 .sofa{
+    position: absolute;
+    top:180px;
+    left:400px;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+
+/*1,掐时间，做延迟 完成动画的衔接*/
+/*2，jquery的动画， $('dom').animate(proper)*/
+/*speed (swing 满快慢  linear 匀速)*/
+/*3，能不能监听到动画或者过度的结束*/
+/*4，css3中过渡transitionend 动画结束 animationend*/
+.screen4.now .sofa{
+    opacity: 1;
+    transform: translateX(1000px);
+    transition: transform 5s;
+
+}
+.screen4.now .cart{
+    transition: all 5s ;
+    transform: translateX(1000px);
+}
+.screen4 .address{
+    position: absolute;
+    width:283px;
+    height:270px;
+    left: 50%;
+    top:220px;
+    /*css3的居中*/
+    transform: translateX(-50%);
+    display: none;
+}
+.screen4 .address img:last-child{
+    position: absolute;
+    top:60px;
+    left:50%;
+    transform: translateX(-50%);
+    z-index:1;
+    display: none;
+}
+
+
+@keyframes cloud04 {
+    from {
+
+    }
+    to{
+        transform: translateX(1000px)
+    }
 }
