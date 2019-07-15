@@ -315,13 +315,13 @@
 /*4，css3中过渡transitionend 动画结束 animationend*/
 .screen4.now .sofa{
     opacity: 1;
-    transform: translateX(1000px);
+    transform: translateX(1500px);
     transition: transform 5s;
 
 }
 .screen4.now .cart{
     transition: all 5s ;
-    transform: translateX(1000px);
+    transform: translateX(1500px);
 }
 .screen4 .address{
     position: absolute;
@@ -350,4 +350,74 @@
     to{
         transform: translateX(1000px)
     }
+}
+
+/*第5屏*/
+.screen5{
+    background: url("../images/05-bg.png") no-repeat center bottom;
+}
+.screen5 .sofa{
+    position: absolute;
+    bottom:100px;
+    left:100px;
+    transform: rotate(30deg);
+    opacity: 0;
+}
+.screen5 .card{
+    position: absolute;
+    left:0;
+    top: 180px;
+}
+.screen5 .card .cardImg{
+    position: relative;
+    z-index: 1;
+}
+.screen5 .card .orderImg{
+    position: absolute;
+    left: 130px;
+    top: -80px;
+    transform: translateY(80px);
+}
+.screen5 .mouse .m1,
+.screen5 .mouse .m2{
+    position: absolute;
+    top:-430px;
+    right:0;
+}
+.screen5 .mouse .m1{
+    opacity: 0;
+}
+.screen5 .mouse .hand{
+    position: absolute;
+    top:240px;
+    right:50px;
+    transform: translateY(500px);
+}
+/*动画*/
+.screen5.now .mouse .hand{
+    transition: all 1s linear;
+    transform: none;
+}
+.screen5.now .mouse .m2{
+    transition: all 0.2s linear 1s;
+    opacity: 1;
+}
+.screen5.now .sofa{
+    animation: sofa05 2s linear 1.2s forwards;
+}
+@keyframes sofa05 {
+    from {
+        transform: translateY(-1000px) rotate(30deg)
+    }
+    50%{
+        transform: translateY(-150px) rotate(30deg);
+    }
+    100%{
+        opacity:1;
+        transform: rotate(30deg);
+    }
+}
+.screen5.now .card .orderImg{
+    transition: all 1s linear 2.2s;
+    transform: none;
 }
