@@ -19,7 +19,6 @@
 .content{
     width: 900px;
     height:600px;
-    background: rgba(0,0,0,0.1);
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -362,11 +361,13 @@
     left:100px;
     transform: rotate(30deg);
     opacity: 0;
+    z-index:1001;
 }
 .screen5 .card{
     position: absolute;
     left:0;
     top: 180px;
+    z-index:1002;
 }
 .screen5 .card .cardImg{
     position: relative;
@@ -377,6 +378,13 @@
     left: 130px;
     top: -80px;
     transform: translateY(80px);
+}
+.screen5 .mouse{
+    position: absolute;
+    right:480px;
+    top:317px;
+    width:400px;
+    height:100%;
 }
 .screen5 .mouse .m1,
 .screen5 .mouse .m2{
@@ -420,4 +428,183 @@
 .screen5.now .card .orderImg{
     transition: all 1s linear 2.2s;
     transform: none;
+}
+.screen5.leaved .sofa{
+    /*transform: translateY(400px) scale(0.5) rotate(30deg);*/
+    /*transition: all 1s linear ;*/
+    animation:  sofa05-06  1s linear;
+}
+
+@keyframes sofa05-06{
+    from{
+        opacity: 1;
+        transform: rotate(30deg);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(700px) scale(0.3);
+    }
+}
+
+/*第六屏*/
+.screen6{
+    background: url("../images/06-bg.png") no-repeat -300px bottom;
+}
+/*
+ 1,背景图的百分比不是按照容器的大小去换算的
+ 2.百分比的背景定位： 基于容器的宽度--背景的宽度
+ 3，计算公式 背景的x的定位 = 容器的宽度-背景的宽度 *百分比
+*/
+.screen6.now{
+    transition: background 2s linear 1s;
+    background: url("../images/06-bg.png") no-repeat -550px bottom;
+}
+
+.screen6 .cloud{
+    position: absolute;
+    top:-50px;
+    left:0;
+}
+.screen6 .cloud:first-child{
+    animation: cloud06 40s linear infinite alternate;
+}
+.screen6 .cloud:last-child{
+    position: absolute;
+    top:0;
+    left:0;
+    animation: cloud06 20s linear infinite alternate;
+}
+.screen6 .text{
+    position: absolute;
+    top: 50px;
+    left: 100px;
+}
+.screen6 .text:last-child{
+    position: absolute;
+    opacity: 1;
+}
+.screen6 .box{
+    position: absolute;
+
+}
+.screen6 .box{
+    position: absolute;
+    top:150px;
+    left: 140px;
+    z-index:1002;
+
+}
+.screen6 .box.show{
+    animation: box06 2s  linear forwards;
+}
+.screen6 .car{
+    position: absolute;
+    bottom: 0;
+    left: 100px;
+    z-index:1003;
+    width:221px;
+    height:122px;
+}
+.screen6 .car img{
+    position: absolute;
+    opacity: 0;
+}
+.screen6 .car .carImg{
+    opacity: 1;
+    position: relative;
+}
+.screen6 .car .buyer,.screen6 .car .address{
+    left:150px;
+    top:-50px;
+}
+.screen6.now .car .buyer{
+    transition: all 0.25s 1.25s;
+    opacity: 1;
+}
+.screen6.now .car .address{
+    transition: all 0.25s 1.75s;
+    opacity: 1;
+}
+.screen6.now .car .worker{
+    left:0;
+    bottom:0;
+    transform-origin: left bottom;
+    animation: worker06 2.1s linear 2s forwards;
+
+}
+.screen6 .car .say{
+    top:-400px;
+    right:-280px;
+}
+.screen6.now .car .say{
+    opacity: 1;
+    transition: all 0.5s linear 4.1s;
+}
+
+.screen6 .person{
+    width:106px;
+    height:150px;
+    position: absolute;
+    right: -257px;
+    bottom:117px;
+
+}
+.screen6 .person .personImg{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform-origin: right bottom;
+    transform: scale(0);
+}
+.screen6 .person .doorImg{
+    opacity: 0;
+}
+.screen6.now .person .doorImg {
+    opacity: 1;
+    transition: all 0.4s linear 4.6s;
+}
+.screen6.now .person .personImg {
+    transform: none;
+    right: 100px;
+    transition: transform 0.5s linear 5s,right 0.5s linear 5.5s;
+}
+@keyframes worker06 {
+    0%{
+        opacity: 1;
+        transform: scale(0);
+    }
+    33.3%{
+        transform: scale(1);
+
+    }
+    67%{
+       transform: scale(1) translateY(-100px);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1) translateY(-100px) translateX(150px);
+    }
+}
+
+
+@keyframes box06 {
+    0%{
+        transform: translateX(-500px);
+        opacity: 1;
+    }
+    50%{
+        transform: none;
+    }
+    100%{
+        transform: translateY(350px) scale(0.3);
+    }
+}
+
+@keyframes cloud06 {
+    from{
+
+    }
+    to{
+        transform: translateX(1000px);
+    }
 }

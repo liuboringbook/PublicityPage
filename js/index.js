@@ -24,9 +24,13 @@ $(function(){
             if(index == 2 && nextIndex == 3){
                 /*当前是从第二页到第三页*/
                 $('.section').eq(index-1).addClass('leaved')
-            }else if(index == 3&& nextIndex == 4){
+            }else if(index == 3 && nextIndex == 4){
                 /*当前是从第三页到第四页*/
                 $('.section').eq(index-1).addClass('leaved')
+            }else if(index == 5 && nextIndex == 6){
+                /*当前是从第五页到第六页*/
+                $('.section').eq(index-1).addClass('leaved');
+                $('.screen6 .box').addClass('show')
             }
         },
         afterRender: function(){
