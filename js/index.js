@@ -31,6 +31,11 @@ $(function(){
                 /*当前是从第五页到第六页*/
                 $('.section').eq(index-1).addClass('leaved');
                 $('.screen6 .box').addClass('show')
+            }else if(index == 6 && nextIndex == 7){
+                $('.screen7 .star img').each(function(i,item){
+                    $(this).delay(i*0.25*1000).fadeIn();
+                })
+                $('.screen7 .text').addClass('show')
             }
         },
         afterRender: function(){
@@ -49,6 +54,34 @@ $(function(){
                 $('.screen4 .address').show().find('img:last').fadeIn(1000);
                 $('.screen4 .text').addClass('show')
             })
+
+
+            /*第八屏功能*/
+            /*1,手要跟着鼠标移动*/
+            $('.screen8').on('mousemove',function(e){
+                $(this).find('.hand').css({
+                    left:e.clientX-460,
+                    top:e.clientY-320
+                })
+            }).find('.again').on('click',function(){
+                $('.now').removeClass('now');
+                $('.show').removeClass('show');
+                $('.leaved').removeClass('leaved');
+
+                /*2，点击再来一次，重置动画调回第一页*/
+                /*动画怎么进行的*/
+                /*2.1加now*/
+                /*2.2加leaved*/
+                /*2.3加show*/
+                /*2.4加css属性*/
+                $('.content[style]').removeAttr('style')
+                /*2.5用jquery方法，show() fadeIn()*/
+
+                /*回到第一页*/
+                $.fn.fullpage.moveTo(1)
+            })
+
+
         }
         /*点击更多切换下一页*/
         /*最好在组件出示完毕或者插件渲染完毕*/
