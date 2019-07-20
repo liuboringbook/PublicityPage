@@ -60,10 +60,11 @@ $(function(){
             /*1,手要跟着鼠标移动*/
             $('.screen8').on('mousemove',function(e){
                 $(this).find('.hand').css({
-                    left:e.clientX-460,
-                    top:e.clientY-320
+                    left:e.clientX-450,
+                    top:e.clientY-300
                 })
             }).find('.again').on('click',function(){
+                console.log(1)
                 $('.now').removeClass('now');
                 $('.show').removeClass('show');
                 $('.leaved').removeClass('leaved');
